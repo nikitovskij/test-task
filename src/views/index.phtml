@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Company By ICO</title>
+</head>
+<style>
+    body.main {
+        width: 1300px;
+        max-width: 100%;
+        margin: 0 auto;
+        margin-top: 100px;
+    }
+
+    .table {
+        width: 500px;
+    }
+</style>
+
+<body class="main">
+    <form class="form-inline" action="/company" method="GET">
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="inputIco" class="sr-only">ICO</label>
+            <input type="text" class="form-control" id="inputIco" placeholder="ICO" name="ico">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Confirm</button>
+    </form>
+    <hr>
+    <div>
+        <h3>Company Info</h3>
+        <?php if (!isset($error)) : ?>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" width="40%">Subjekt</th>
+                        <th scope="col" width="60%">Informace</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Nazev</th>
+                        <th><?= $name ?></th>
+                    </tr>
+                    <tr>
+                        <th scope="row">ICO</th>
+                        <th><?= $ico ?></th>
+                    </tr>
+                    <tr>
+                        <th scope="row">Pravni forma</th>
+                        <th><?= $legal_form ?></th>
+                    </tr>
+                    <th scope="row">Adresa</th>
+                    <th><?= $address ?></th>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <a href="/json/<?= $ico ?>">JSON DATA</a>
+            </div>
+        <?php else : ?>
+            <div class="alert alert-danger" role="alert">
+                <?= $error ?>
+            </div>
+        <?php endif; ?>
+
+    </div>
+</body>
+<div>
+
+</html>

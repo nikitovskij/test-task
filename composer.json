@@ -1,0 +1,23 @@
+{
+  "name": "nikitovskij/test-task",
+  "description": "test task",
+  "authors": [
+    {
+      "name": "nikitovskij",
+      "email": "nbaranovsky24@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "src"
+    }
+  },
+  "require": {
+    "slim/slim": "^4.5",
+    "slim/psr7": "^1.2",
+    "slim/http": "^1.0",
+    "slim/php-view": "^3.0",
+    "php-di/php-di": "^6.2",
+    "asisteam/ares": "dev-master"
+  }
+}
