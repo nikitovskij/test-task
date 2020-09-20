@@ -13,6 +13,7 @@
     }
   },
   "require": {
+    "php": ">=7.4",
     "slim/slim": "^4.5",
     "slim/psr7": "^1.2",
     "slim/http": "^1.0",

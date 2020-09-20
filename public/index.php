@@ -17,7 +17,7 @@ use App\Controller\CompanyController;
 
 $container = new Container();
 $container->set('renderer', function () {
-    return new \Slim\Views\PhpRenderer(__DIR__ . '/views');
+    return new \Slim\Views\PhpRenderer(__DIR__ . 'src/views');
 });
 
 $app = AppFactory::createFromContainer($container);
