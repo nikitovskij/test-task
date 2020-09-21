@@ -21,7 +21,7 @@ class DataCollector
         }
 
         return [
-            'ico'       => $company->getVatId(),
+            'ico'       => $company->getCompanyID(),
             'name'      => $company->getName(),
             'legalForm' => $company->getLegalFormName(),
             'address'   => $company->getAddress()
