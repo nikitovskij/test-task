@@ -22,7 +22,7 @@ http://localhost:8080
 ```
 $ make lint
 ```
-### Example
+## Example
 Test app on <a href="https://test-nula.herokuapp.com/">Heroku</a>
 
 ## REQUIREMENTS
