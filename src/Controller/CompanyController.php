@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use AsisTeam\ARES\Client\Finder;
+use App\ExternalApi\DataCollector;
 use Psr\Container\ContainerInterface;
 
 class CompanyController
@@ -21,36 +22,15 @@ class CompanyController
         return $this->container->get('renderer')->render($response, 'index.phtml');
     }
 
-    public function find($request, $response, $args)
+    public function getCompany($request, $response, $args)
     {
-        $ico     = $request->getQueryParam('ico');
-        $company = $this->ares->findById($ico);
-        
-        if ($company === null) {
-            $data = [
-                'error' => 'Company not found'
-            ];
-        } else {
-            $data = $this->getPreparedData($company);
+        $ico  = $request->getParsedBodyParam('ico');
+        $data = DataCollector::collectCompanyDataByICO($ico);
+
+        if (isset($data['error'])) {
+            return $this->container->get('renderer')->render($response, 'index.phtml', $data);
         }
-        
-        // $res = json_encode($params, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK);
-        return $this->container->get('renderer')->render($response, 'index.phtml', $data);
-    }
 
-    public function renderJson($request, $response, $args)
-    {
-        //$response->withJason();
-        return false;
-    }
-
-    public function getPreparedData($company)
-    {
-        return [
-            'ico'        => $company->getVatId(),
-            'name'       => $company->getName(),
-            'legal_form' => $company->getLegalFormName(),
-            'address'    => $company->getAddress()
-        ];
+        return $this->container->get('renderer')->render($response, 'show.phtml', $data);
     }
 }

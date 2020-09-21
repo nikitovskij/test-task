@@ -14,6 +14,7 @@ if (file_exists($autoloadPath1)) {
 use DI\Container;
 use Slim\Factory\AppFactory;
 use App\Controller\CompanyController;
+use App\Controller\JsonController;
 
 $container = new Container();
 $container->set('renderer', function () {
@@ -24,7 +25,7 @@ $app = AppFactory::createFromContainer($container);
 $app->addErrorMiddleware(true, true, true);
 
 $app->get('/', CompanyController::class . ':index');
-$app->get('/company', CompanyController::class . ':find');
-$app->get('/json/{id}', CompanyController::class . ':renderJson');
+$app->post('/company', CompanyController::class . ':getCompany');
+$app->get('/json/{ico}', JsonController::class . ':renderJson');
 
 $app->run();

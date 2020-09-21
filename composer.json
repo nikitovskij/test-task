@@ -20,5 +20,8 @@
     "slim/php-view": "^3.0",
     "php-di/php-di": "^6.2",
     "asisteam/ares": "dev-master"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.5"
   }
 }

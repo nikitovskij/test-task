@@ -1,10 +1,44 @@
-<div>
-    <?php
-        // print_r($ico);
-        // print_r($name);
-        // print_r($address);
-        // print_r($legal_form);
-        // print_r($info);
-        // echo $info;
-    ?>
-</div>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Company By ICO</title>
+</head>
+
+<body class="main">
+    <div class="container">
+        <div class="col-sm-12 mt-5">
+            <a href="/">Zpet</a>
+        </div>
+        <div class="col-md-6 mt-5">
+            <div class="mb-4">
+                <h2>Infomrace of podniku</h2>
+            </div>
+            <table class="table">
+                <tr>
+                    <th scope="row">Nazev</th>
+                    <th><?= $name ?></th>
+                </tr>
+                <tr>
+                    <th scope="row">ICO</th>
+                    <th><?= $ico ?></th>
+                </tr>
+                <tr>
+                    <th scope="row">Pravni forma</th>
+                    <th><?= $legalForm ?></th>
+                </tr>
+                <th scope="row">Adresa</th>
+                <th><?= $address ?></th>
+                </tr>
+            </table>
+            <div>
+                <h6>Informace ve formatu JSON</h6>
+                <a href="/json/<?= $ico ?>" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Otevrit</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
